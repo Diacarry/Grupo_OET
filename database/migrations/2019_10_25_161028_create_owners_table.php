@@ -20,9 +20,9 @@ class CreateOwnersTable extends Migration
             $table->string('first_name', 50); /* primer_nombre */
             $table->string('second_name', 50); /* segundo_nombre */
             $table->string('last_name', 100); /* apellidos */
-            $table->string('address'); /* direccion */
-            $table->string('phone'); /* telefono */
-            $table->string('city'); /* ciudad */
+            $table->string('address', 100); /* direccion */
+            $table->string('phone', 20); /* telefono */
+            $table->string('city', 50); /* ciudad */
         });
     }
 

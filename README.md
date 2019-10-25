@@ -23,7 +23,7 @@ Las columnas para cada tabla se explican acontinuación
 owners              | propietarios
     identification  | cedula
     first_name      | primer_nombre
-    last_name       | segundo_nombre
+    second_name     | segundo_nombre
     last_name       | apellidos
     address         | direccion
     phone           | telefono

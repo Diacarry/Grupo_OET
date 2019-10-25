@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Owner;
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -13,7 +14,10 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        //
+        $data = Owner::all();
+        return view('owner.index', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('owner.register');
     }
 
     /**
@@ -34,7 +38,25 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'identification'=> 'required|min:5|max:25',
+            'first_name'    => 'required|min:5|max:50',
+            'second_name'   => 'required|min:5|max:50',
+            'last_name'     => 'required|min:8|max:100',
+            'address'       => 'required|min:8|max:100',
+            'phone'         => 'required|min:8|max:20',
+            'city'          => 'required|min:8|max:50'
+        ]);
+        $report = new Owner;
+        $report->identification = $request->get('identification');
+        $report->first_name = $request->get('first_name');
+        $report->second_name = $request->get('second_name');
+        $report->last_name = $request->get('last_name');
+        $report->address = $request->get('address');
+        $report->phone = $request->get('phone');
+        $report->city = $request->get('city');
+        $report->save();
+        return redirect('owners');
     }
 
     /**
@@ -56,7 +78,10 @@ class OwnerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $owner = Owner::find($id);
+        return view('owner.edit', [
+            'data' => $owner
+        ]);
     }
 
     /**
@@ -68,7 +93,23 @@ class OwnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'first_name'    => 'required|min:5|max:50',
+            'second_name'   => 'required|min:5|max:50',
+            'last_name'     => 'required|min:8|max:100',
+            'address'       => 'required|min:8|max:100',
+            'phone'         => 'required|min:8|max:20',
+            'city'          => 'required|min:8|max:50'
+        ]);
+        $report = Owner::find($id);
+        $report->first_name = $request->get('first_name');
+        $report->second_name = $request->get('second_name');
+        $report->last_name = $request->get('last_name');
+        $report->address = $request->get('address');
+        $report->phone = $request->get('phone');
+        $report->city = $request->get('city');
+        $report->save();
+        return redirect('owners');
     }
 
     /**
@@ -79,6 +120,8 @@ class OwnerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $registro = Owner::find($id);
+        $registro->delete();
+        return redirect('owners');
     }
 }

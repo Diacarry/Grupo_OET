@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get ('/', 'IndexController');
+
+Route::resource ('/owners', 'OwnerController');
+
+Route::resource ('/drivers', 'DriverController');
+
+Route::resource ('/vehicles', 'VehicleController');
 
 Auth::routes();
 
