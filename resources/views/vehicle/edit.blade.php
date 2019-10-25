@@ -12,6 +12,9 @@
             @endauth
         </div>
     @endif
+    <div class="text-right">
+        <a href="{{ url('vehicles') }}" class="btn btn-outline-danger">Atras</a>
+    </div>
     <h2>Editar datos de vehiculo y asignacion</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">

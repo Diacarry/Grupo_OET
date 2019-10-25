@@ -12,6 +12,9 @@
                 @endauth
             </div>
         @endif
+        <div class="text-right">
+            <a href="{{ url('') }}" class="btn btn-outline-danger">Menu</a>
+        </div>
         <div class="card">
             <div class="card-header">
                 <h2>PROPIETARIOS</h2>
