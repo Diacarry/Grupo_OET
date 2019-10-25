@@ -17,7 +17,7 @@ class AddForeignKeyToVehiclesTable extends Migration
             $table->string('fk_owner')->after('license_plate');
             $table->foreign('fk_owner')->references('identification')->on('owners');
 
-            $table->string('fk_driver')->after('fk_owners');
+            $table->string('fk_driver')->after('fk_owner');
             $table->foreign('fk_driver')->references('identification')->on('drivers');
         });
     }
