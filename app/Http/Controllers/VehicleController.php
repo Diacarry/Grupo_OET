@@ -86,10 +86,14 @@ class VehicleController extends Controller
         $vehicle = Vehicle::find($id);
         $owners = Owner::all();
         $drivers = Driver::all();
+        $owner = Vehicle::find($id)->owner;
+        $driver = Vehicle::find($id)->driver;
         return view('vehicle.edit', [
             'dataV' => $vehicle,
             'owners' => $owners,
-            'drivers' => $drivers
+            'drivers' => $drivers,
+            'owner' => $owner,
+            'driver' => $driver
         ]);
     }
 

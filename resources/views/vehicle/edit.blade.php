@@ -22,7 +22,7 @@
             </ul>
         </div>
     @endif
-    <form action="/vehicles/{{ $data->identification }}" method="POST">
+    <form action="/vehicles/{{ $dataV->license_plate }}" method="POST">
         @csrf
         @method('put')
         <div class="form-group row">
@@ -48,7 +48,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="fk_owner">Propietario</label>
+            <label for="fk_owner">Propietario ({{ $owner->last_name}} {{ $owner->first_name }} {{ $owner->second_name }})</label>
             <select name="fk_owner" id="fk_owner" class="form-control">
                 <option value="">Seleccione un Propietario</option>
                 @foreach($owners as $owner)
@@ -57,7 +57,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="fk_driver">Conductor</label>
+            <label for="fk_driver">Conductor ({{ $driver->last_name }} {{ $driver->first_name }} {{ $driver->second_name }})</label>
             <select name="fk_driver" id="fk_driver" class="form-control">
                 <option value="">Elija un condutor</option>
                 @foreach($drivers as $driver)

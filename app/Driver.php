@@ -48,6 +48,6 @@ class Driver extends Model
     */
    public function vehicle()
    {
-       return $this->belongsTo('App\Vehicle', 'fk_driver', 'identification');
+       return $this->hasOne('App\Vehicle', 'fk_driver', 'identification');
    }
 }

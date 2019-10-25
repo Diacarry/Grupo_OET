@@ -48,13 +48,13 @@ class Vehicle extends Model
     */
    public function owner()
    {
-       return $this->belongsTo('App\Owner', 'fk_owners', 'identification');
+       return $this->belongsTo('App\Owner', 'fk_owner', 'identification');
    }
    /**
      * Get the driver record associated with the user.
      */
     public function driver()
     {
-        return $this->hasOne('App\Driver', 'fk_driver', 'identification');
+        return $this->belongsTo('App\Driver', 'fk_driver');
     }
 }

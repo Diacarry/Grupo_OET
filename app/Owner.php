@@ -48,6 +48,6 @@ class Owner extends Model
      */
     public function vehicles()
     {
-        return $this->hasMany('App\Vehicle', 'fk_owners', 'identification');
+        return $this->hasMany('App\Vehicle', 'fk_owner', 'identification');
     }
 }
