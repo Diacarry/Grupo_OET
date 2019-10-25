@@ -17,7 +17,7 @@ class Owner extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'cedula';
+    protected $primaryKey = 'identification';
     /**
      * Indicates if the IDs are auto-incrementing.
      * Options: true -> Auto-Increment; false -> No Auto-Increment
@@ -43,4 +43,11 @@ class Owner extends Model
      */
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+    /**
+     * Get the vehicles record associated with the user.
+     */
+    public function vehicles()
+    {
+        return $this->hasMany('App\Vehicle', 'fk_owners', 'identification');
+    }
 }

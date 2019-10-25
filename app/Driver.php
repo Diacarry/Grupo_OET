@@ -17,7 +17,7 @@ class Driver extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'cedula';
+    protected $primaryKey = 'identification';
     /**
      * Indicates if the IDs are auto-incrementing.
      * Options: true -> Auto-Increment; false -> No Auto-Increment
@@ -43,4 +43,11 @@ class Driver extends Model
      */
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+    /**
+    * Get the user that owns the phone.
+    */
+   public function vehicle()
+   {
+       return $this->belongsTo('App\Vehicle', 'fk_driver', 'identification');
+   }
 }

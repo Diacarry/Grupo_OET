@@ -17,7 +17,7 @@ class Vehicle extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'placa';
+    protected $primaryKey = 'license_plate';
     /**
      * Indicates if the IDs are auto-incrementing.
      * Options: true -> Auto-Increment; false -> No Auto-Increment
@@ -43,4 +43,18 @@ class Vehicle extends Model
      */
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+    /**
+    * Get the owner that owns the phone.
+    */
+   public function owner()
+   {
+       return $this->belongsTo('App\Owner', 'fk_owners', 'identification');
+   }
+   /**
+     * Get the driver record associated with the user.
+     */
+    public function driver()
+    {
+        return $this->hasOne('App\Driver', 'fk_driver', 'identification');
+    }
 }
