@@ -44,3 +44,6 @@ vehicles            | vehiculos
     brand           | marca
     fk_driver       | llave_foranea_conductor
     fk_owner        | llave_foranea_propietario
+
+Se realizaron algunos seed's para crear pocos registros, para hacer uso de los mismos, ejecute el comando
+php artisan db:seed
