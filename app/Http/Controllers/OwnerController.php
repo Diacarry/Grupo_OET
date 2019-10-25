@@ -45,7 +45,7 @@ class OwnerController extends Controller
             'last_name'     => 'required|min:8|max:100',
             'address'       => 'required|min:8|max:100',
             'phone'         => 'required|min:8|max:20',
-            'city'          => 'required|min:8|max:50'
+            'city'          => 'required|min:3|max:50'
         ]);
         $report = new Owner;
         $report->identification = $request->get('identification');
@@ -99,7 +99,7 @@ class OwnerController extends Controller
             'last_name'     => 'required|min:8|max:100',
             'address'       => 'required|min:8|max:100',
             'phone'         => 'required|min:8|max:20',
-            'city'          => 'required|min:8|max:50'
+            'city'          => 'required|min:3|max:50'
         ]);
         $report = Owner::find($id);
         $report->first_name = $request->get('first_name');

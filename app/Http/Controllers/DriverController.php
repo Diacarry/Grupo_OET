@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Driver;
 use Illuminate\Http\Request;
 
 class DriverController extends Controller
@@ -13,7 +14,10 @@ class DriverController extends Controller
      */
     public function index()
     {
-        //
+        $data = Driver::all();
+        return view('driver.index', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        //
+        return view('driver.register');
     }
 
     /**
@@ -34,7 +38,25 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'identification'=> 'required|min:5|max:25',
+            'first_name'    => 'required|min:5|max:50',
+            'second_name'   => 'required|min:5|max:50',
+            'last_name'     => 'required|min:8|max:100',
+            'address'       => 'required|min:8|max:100',
+            'phone'         => 'required|min:8|max:20',
+            'city'          => 'required|min:3|max:50'
+        ]);
+        $report = new Driver;
+        $report->identification = $request->get('identification');
+        $report->first_name = $request->get('first_name');
+        $report->second_name = $request->get('second_name');
+        $report->last_name = $request->get('last_name');
+        $report->address = $request->get('address');
+        $report->phone = $request->get('phone');
+        $report->city = $request->get('city');
+        $report->save();
+        return redirect('owners');
     }
 
     /**
@@ -56,7 +78,10 @@ class DriverController extends Controller
      */
     public function edit($id)
     {
-        //
+        $driver = Driver::find($id);
+        return view('driver.edit', [
+            'data' => $driver
+        ]);
     }
 
     /**
@@ -68,7 +93,23 @@ class DriverController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'first_name'    => 'required|min:5|max:50',
+            'second_name'   => 'required|min:5|max:50',
+            'last_name'     => 'required|min:8|max:100',
+            'address'       => 'required|min:8|max:100',
+            'phone'         => 'required|min:8|max:20',
+            'city'          => 'required|min:3|max:50'
+        ]);
+        $report = Driver::find($id);
+        $report->first_name = $request->get('first_name');
+        $report->second_name = $request->get('second_name');
+        $report->last_name = $request->get('last_name');
+        $report->address = $request->get('address');
+        $report->phone = $request->get('phone');
+        $report->city = $request->get('city');
+        $report->save();
+        return redirect('drivers');
     }
 
     /**
@@ -79,6 +120,8 @@ class DriverController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $registro = Driver::find($id);
+        $registro->delete();
+        return redirect('drivers');
     }
 }

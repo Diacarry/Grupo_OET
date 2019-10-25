@@ -1,6 +1,6 @@
 @extends('layouts.blank')
 @section('title')
-    Editar Propietario
+    Editar Conductor
 @endsection
 @section('content')
     <br>
@@ -12,7 +12,7 @@
             @endauth
         </div>
     @endif
-    <h2>Editar datos de propietario</h2>
+    <h2>Editar datos de Conductor</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             <ul>
@@ -22,7 +22,7 @@
             </ul>
         </div>
     @endif
-    <form action="/owners/{{ $data->identification }}" method="POST">
+    <form action="/drivers/{{ $data->identification }}" method="POST">
         @csrf
         @method('put')
         <div class="form-group row">
