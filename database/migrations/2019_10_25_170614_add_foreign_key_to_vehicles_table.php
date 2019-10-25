@@ -14,8 +14,8 @@ class AddForeignKeyToVehiclesTable extends Migration
     public function up()
     {
         Schema::table('vehicles', function (Blueprint $table) {
-            $table->string('fk_owners')->after('license_plate');
-            $table->foreign('fk_owners')->references('identification')->on('owners');
+            $table->string('fk_owner')->after('license_plate');
+            $table->foreign('fk_owner')->references('identification')->on('owners');
 
             $table->string('fk_driver')->after('fk_owners');
             $table->foreign('fk_driver')->references('identification')->on('drivers');

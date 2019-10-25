@@ -56,7 +56,7 @@ class DriverController extends Controller
         $report->phone = $request->get('phone');
         $report->city = $request->get('city');
         $report->save();
-        return redirect('owners');
+        return redirect('drivers');
     }
 
     /**

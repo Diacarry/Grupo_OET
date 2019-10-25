@@ -1,6 +1,6 @@
 @extends('layouts.blank')
 @section('title')
-    Conductores
+    Vehiculos
 @endsection
 @section('content')
     <div class="flex-center position-ref full-height"><br>
@@ -14,25 +14,24 @@
         @endif
         <div class="card">
             <div class="card-header">
-                <h2>CONDUCTORES</h2>
+                <h2>VEHICULOS</h2>
             </div>
             <div class="card-body">
-            <p><a href="{{ route('drivers.create') }}" class="btn btn-success">registrar un conductor</a></p>
+            <p><a href="{{ route('vehicles.create') }}" class="btn btn-success">registrar un vehiculo</a></p>
                 <div class="card">
                     <div class="card-header">
-                        Listado de Conductores
+                        Listado de Vehiculos
                     </div>
                     <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Cedula</th>
-                                    <th scope="col">Primer Nombre</th>
-                                    <th scope="col">Segundo Nombre</th>
-                                    <th scope="col">Apellidos</th>
-                                    <th scope="col">Direccion</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Ciudad</th>
+                                    <th scope="col">Placa</th>
+                                    <th scope="col">Color</th>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Conductor</th>
+                                    <th scope="col">Propietario</th>
                                     <th scope="col">Editar</th>
                                     <th scope="col">Eliminar</th>
                                 </tr>
@@ -40,16 +39,15 @@
                             <tbody>
                                 @forelse($data as $info)
                                     <tr>
-                                        <th>{{ $info->identification }}</th>
-                                        <td>{{ $info->first_name }}</td>
-                                        <td>{{ $info->second_name }}</td>
-                                        <td>{{ $info->last_name }}</td>
-                                        <td>{{ $info->address }}</td>
-                                        <td>{{ $info->phone }}</td>
-                                        <td>{{ $info->city }}</td>
-                                        <td><a href="/drivers/{{ $info->identification }}/edit" class="btn btn-warning"></a></td>
+                                        <th>{{ $info->license_plate }}</th>
+                                        <td>{{ $info->color }}</td>
+                                        <td>{{ $info->brand }}</td>
+                                        <td>{{ $info->type }}</td>
+                                        <td>{{ $info->fk_driver }}</td>
+                                        <td>{{ $info->fk_owner }}</td>
+                                        <td><a href="/vehicles/{{ $info->license_plate }}/edit" class="btn btn-warning"></a></td>
                                         <td>
-                                            <form action="/drivers/{{ $info->identification }}" method="post">
+                                            <form action="/vehicles/{{ $info->license_plate }}" method="post">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-danger"></button>
@@ -59,7 +57,7 @@
                                 @empty
                                     <tr>
                                         <div class="alert alert-danger" role="alert">
-                                            No hay conductores registrados
+                                            No hay vehiculos registrados
                                         </div>
                                     </tr>
                                 @endforelse
