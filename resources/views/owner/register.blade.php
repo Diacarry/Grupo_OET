@@ -7,14 +7,11 @@
     @if (Route::has('login'))
         <div class="text-right">
             @auth
-                <a href="{{ route('owner.index') }}" class="btn btn-outline-danger">Atras</a>
+                <a href="{{ route('owners') }}" class="btn btn-outline-danger">Atras</a>
                 <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Cuenta</a>
             @endauth
         </div>
     @endif
-    <div class="text-right">
-        <a href="{{ url('owners') }}" class="btn btn-outline-danger">Atras</a>
-    </div>
     <h2>Registrar un nuevo propietario</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">

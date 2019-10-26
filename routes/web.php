@@ -13,11 +13,15 @@
 
 Route::get ('/', 'IndexController');
 
-Route::resource ('/owners', 'OwnerController');
+Route::group(['middleware' => ['auth']], function () {
 
-Route::resource ('/drivers', 'DriverController');
+    Route::resource ('/owners', 'OwnerController');
 
-Route::resource ('/vehicles', 'VehicleController');
+    Route::resource ('/drivers', 'DriverController');
+
+    Route::resource ('/vehicles', 'VehicleController');
+
+});
 
 Auth::routes();
 
