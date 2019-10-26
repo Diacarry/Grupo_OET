@@ -89,6 +89,9 @@
                         <a href="{{ url('owners') }}">Propietarios</a>
                         <a href="{{ url('drivers')  }}">Conductores</a>
                         <a href="{{ url('vehicles')  }}">Vehiculos</a>
+                    </div><br>
+                    <div class="links">
+                        <a href="{{ url('report')  }}">Reporte</a>
                     </div>
                 @else
                     Necesita esta autenticado en el sistema para hacer uso de este aplicativo
