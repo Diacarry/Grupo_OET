@@ -47,3 +47,5 @@ vehicles            | vehiculos
 
 Se realizaron algunos seed's para crear pocos registros, para hacer uso de los mismos, ejecute el comando
 php artisan db:seed
+
+Si ejecuto el comando anterior ya podra usar el aplicativo como administrador, claro esta que puede crear su propio usuario administrador
