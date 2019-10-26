@@ -17,7 +17,7 @@
                 <h2>CONDUCTORES</h2>
             </div>
             <div class="card-body">
-            <p><a href="{{ route('drivers.create') }}" class="btn btn-success">registrar un conductor</a></p>
+            <p><a href="{{ route('drivers.create') }}" class="btn btn-success">Registrar un conductor</a></p>
                 <div class="card">
                     <div class="card-header">
                         Listado de Conductores
@@ -65,6 +65,11 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                {{ $data->links() }}
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>

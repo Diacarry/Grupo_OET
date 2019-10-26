@@ -14,7 +14,7 @@ class DriverController extends Controller
      */
     public function index()
     {
-        $data = Driver::all();
+        $data = Driver::paginate(5);
         return view('driver.index', [
             'data' => $data
         ]);

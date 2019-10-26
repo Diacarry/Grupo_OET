@@ -14,7 +14,7 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $data = Owner::all();
+        $data = Owner::paginate(5);
         return view('owner.index', [
             'data' => $data
         ]);

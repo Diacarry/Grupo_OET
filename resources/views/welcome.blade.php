@@ -84,11 +84,15 @@
                     Bienvenido
                 </div>
 
-                <div class="links">
-                    <a href="{{ url('owners') }}">Propietarios</a>
-                    <a href="{{ url('drivers')  }}">Conductores</a>
-                    <a href="{{ url('vehicles')  }}">Vehiculos</a>
-                </div>
+                @auth
+                    <div class="links">
+                        <a href="{{ url('owners') }}">Propietarios</a>
+                        <a href="{{ url('drivers')  }}">Conductores</a>
+                        <a href="{{ url('vehicles')  }}">Vehiculos</a>
+                    </div>
+                @else
+                    Necesita esta autenticado en el sistema para hacer uso de este aplicativo
+                @endauth
             </div>
         </div>
     </body>

@@ -16,7 +16,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $data = Vehicle::all();
+        $data = Vehicle::paginate(5);
         return view('vehicle.index', [
             'data' => $data
         ]);

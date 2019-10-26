@@ -17,7 +17,7 @@
                 <h2>VEHICULOS</h2>
             </div>
             <div class="card-body">
-            <p><a href="{{ route('vehicles.create') }}" class="btn btn-success">registrar un vehiculo</a></p>
+            <p><a href="{{ route('vehicles.create') }}" class="btn btn-success">Registrar un vehiculo</a></p>
                 <div class="card">
                     <div class="card-header">
                         Listado de Vehiculos
@@ -63,6 +63,11 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                {{ $data->links() }}
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>

@@ -17,10 +17,10 @@
                 <h2>PROPIETARIOS</h2>
             </div>
             <div class="card-body">
-            <p><a href="{{ route('owners.create') }}" class="btn btn-success">registrar un propietario</a></p>
+            <p><a href="{{ route('owners.create') }}" class="btn btn-success">Registrar un propietario</a></p>
                 <div class="card">
                     <div class="card-header">
-                        Listado de Pripietarios
+                        Listado de Propietarios
                     </div>
                     <div class="card-body">
                         <table class="table">
@@ -65,6 +65,11 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                {{ $data->links() }}
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>

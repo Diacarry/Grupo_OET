@@ -7,7 +7,7 @@
     @if (Route::has('login'))
         <div class="text-right">
             @auth
-                <a href="{{ route('vehicles') }}" class="btn btn-outline-danger">Atras</a>
+                <a href="{{ route('vehicles.index') }}" class="btn btn-outline-danger">Atras</a>
                 <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Cuenta</a>
             @endauth
         </div>
