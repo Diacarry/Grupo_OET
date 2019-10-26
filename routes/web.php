@@ -15,11 +15,13 @@ Route::get ('/', 'IndexController');
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::resource ('/owners', 'OwnerController');
+    Route::resource ('/owners', 'OwnerController')->except(['show']);
 
-    Route::resource ('/drivers', 'DriverController');
+    Route::resource ('/drivers', 'DriverController')->except(['show']);
 
-    Route::resource ('/vehicles', 'VehicleController');
+    Route::resource ('/vehicles', 'VehicleController')->except(['show']);
+
+    Route::get ('/report', 'ReportController');
 
 });
 
